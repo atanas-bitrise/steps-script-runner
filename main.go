@@ -52,7 +52,6 @@ Error: \t%s
 			colorstring.Red(fmt.Sprintf("%d", exitCode)),
 			colorstring.Red(err.Error()),
 		)
-		fmt.Println("-------------------") // Separate streamed stdout/stderr from the step's error message
 		fmt.Println(prettyError)
 	}
 
