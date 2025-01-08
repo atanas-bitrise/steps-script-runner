@@ -35,7 +35,7 @@ func main() {
 		os.Exit(1)
 	}
 
-	exitCode, err := runScript(runner, filePath, workingDir)
+	exitCode, _ := runScript(runner, filePath, workingDir)
 
 	os.Exit(exitCode)
 }
