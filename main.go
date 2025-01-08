@@ -40,11 +40,11 @@ func main() {
 	if err != nil {
 		prettyError := fmt.Sprintf(
 			`Script: \t%s
-Working directory: \t%s
-`,
+Working directory: \t%s`,
 			colorstring.Cyan(filePath),
 			colorstring.Cyan(workingDir),
 		)
+		fmt.Println("-------------------") // Separate streamed stdout/stderr from the step's error message
 		fmt.Println(prettyError)
 	}
 
