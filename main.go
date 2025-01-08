@@ -39,12 +39,7 @@ func main() {
 	exitCode, err := runScript(runner, filePath, workingDir)
 	if err != nil {
 		prettyError := fmt.Sprintf(
-			`Script: \t%s
-Working directory: \t%s
-%s
-`,
-			colorstring.Cyan(filePath),
-			colorstring.Cyan(workingDir),
+			`%s`,
 			colorstring.Red(fmt.Sprintf("%s (%d)", err.Error(), exitCode)),
 		)
 		fmt.Println(prettyError)
