@@ -6,6 +6,7 @@ import (
 
 	"github.com/kballard/go-shellquote"
 
+	"github.com/bitrise-io/go-utils/colorstring"
 	"github.com/bitrise-io/go-utils/command"
 	"github.com/bitrise-io/go-utils/pathutil"
 	"github.com/bitrise-tools/go-steputils/input"
@@ -35,7 +36,17 @@ func main() {
 		os.Exit(1)
 	}
 
-	exitCode, _ := runScript(runner, filePath, workingDir)
+	exitCode, err := runScript(runner, filePath, workingDir)
+	if err != nil {
+		prettyError := fmt.Sprintf(
+			`Script: \t%s
+Working directory: \t%s
+`,
+			colorstring.Cyan(filePath),
+			colorstring.Cyan(workingDir),
+		)
+		fmt.Println(prettyError)
+	}
 
 	os.Exit(exitCode)
 }
